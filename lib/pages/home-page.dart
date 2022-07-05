@@ -4,7 +4,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:isell/pages/ajustes-page.dart';
 import 'package:isell/pages/caixa-page.dart';
 import 'package:isell/pages/clientes-page.dart';
-import 'package:isell/pages/produtos-page.dart';
+import 'package:isell/pages/produtos/produtos-page.dart';
 import 'package:isell/pages/vendas-page.dart';
 
 class HomePage extends StatefulWidget {
@@ -32,18 +32,18 @@ class _HomePageState extends State<HomePage> {
         type: BottomNavigationBarType.fixed,
         // ignore: prefer_const_literals_to_create_immutables
         items: [
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
             icon: Icon(Icons.assessment_outlined),
             label: 'Vendas',
           ),
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
               icon: Icon(Icons.people_outline), label: 'Clientes'),
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
               icon: Icon(Icons.attach_money_outlined), label: 'Caixa'),
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
               icon: Icon(Icons.all_inbox_rounded), label: 'Produtos'),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.settings), label: 'Produtos'),
+          const BottomNavigationBarItem(
+              icon: Icon(Icons.settings), label: 'Ajustes'),
         ],
       ),
       body: SingleChildScrollView(child: routes(_selectedIndex)),
