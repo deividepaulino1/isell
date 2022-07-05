@@ -7,10 +7,8 @@ class VendasPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Text('Vendas page'),
-      ),
+    return SingleChildScrollView(
+      child: Text('Vendas page'),
     );
   }
 }

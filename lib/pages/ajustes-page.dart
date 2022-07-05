@@ -7,10 +7,8 @@ class AjustesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Text('Ajustes page'),
-      ),
+    return SingleChildScrollView(
+      child: Text('Ajustes page'),
     );
   }
 }

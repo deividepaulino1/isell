@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:isell/pages/ajustes-page.dart';
 import 'package:isell/pages/caixa-page.dart';
 import 'package:isell/pages/clientes-page.dart';
+import 'package:isell/pages/home-page.dart';
 import 'package:isell/pages/login-page.dart';
 import 'package:isell/pages/produtos-page.dart';
 import 'package:isell/pages/vendas-page.dart';
@@ -13,21 +14,15 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-<<<<<<< HEAD
 
   // This widget is the root of your application.
-=======
-  @override
->>>>>>> 5946a521a7b4573d92e767fd386c5a91d32231d2
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'iSell, seu pdv mobile',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-<<<<<<< HEAD
-      home:  HomePage(),
-=======
       onGenerateRoute: (settings) {
         //rotas aqui, seguir este swich
         switch (settings.name) {
@@ -39,41 +34,9 @@ class MyApp extends StatelessWidget {
               settings: settings,
             );
 
-          case '/vendas':
+          case '/home':
             return PageTransition(
-              child: VendasPage(),
-              //aqui define o tipo de animação de transição de tela
-              type: PageTransitionType.fade,
-              settings: settings,
-            );
-
-          case '/clientes':
-            return PageTransition(
-              child: ClientesPage(),
-              //aqui define o tipo de animação de transição de tela
-              type: PageTransitionType.fade,
-              settings: settings,
-            );
-
-          case '/caixa':
-            return PageTransition(
-              child: CaixaPage(),
-              //aqui define o tipo de animação de transição de tela
-              type: PageTransitionType.fade,
-              settings: settings,
-            );
-
-          case '/produtos':
-            return PageTransition(
-              child: ProdutosPage(),
-              //aqui define o tipo de animação de transição de tela
-              type: PageTransitionType.fade,
-              settings: settings,
-            );
-
-          case '/ajustes':
-            return PageTransition(
-              child: AjustesPage(),
+              child: HomePage(),
               //aqui define o tipo de animação de transição de tela
               type: PageTransitionType.fade,
               settings: settings,
@@ -83,7 +46,6 @@ class MyApp extends StatelessWidget {
             return null;
         }
       },
->>>>>>> 5946a521a7b4573d92e767fd386c5a91d32231d2
     );
   }
 }
