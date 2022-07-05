@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
+<<<<<<< HEAD:lib/pages/home-page.dart
 class HomePage extends StatefulWidget {
   @override
   State<HomePage> createState() => _HomePageState();
@@ -11,10 +12,15 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
+=======
+class CaixaPage extends StatelessWidget {
+  const CaixaPage({Key? key}) : super(key: key);
+>>>>>>> 5946a521a7b4573d92e767fd386c5a91d32231d2:lib/pages/caixa-page.dart
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+<<<<<<< HEAD:lib/pages/home-page.dart
       appBar: AppBar(
         title: Text('iSell'),
       ),
@@ -39,6 +45,10 @@ class _HomePageState extends State<HomePage> {
 
 
         ],
+=======
+      body: Center(
+        child: Text('Caixa page'),
+>>>>>>> 5946a521a7b4573d92e767fd386c5a91d32231d2:lib/pages/caixa-page.dart
       ),
     );
   }
