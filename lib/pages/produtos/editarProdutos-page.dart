@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
@@ -18,8 +20,46 @@ class EditarProdutosPage extends StatelessWidget {
       body: SafeArea(
         child: Center(
           child: Container(
-            color: Colors.red,
-          ),
+              child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              topBarComponent(
+                titulo: 'Editar Produto',
+              ),
+              DetalhesProduto(),
+              Padding(
+                padding: EdgeInsets.only(left: 15, right: 15, bottom: 15),
+                child: Column(
+                  // ignore: prefer_const_literals_to_create_immutables
+                  children: [
+                    BtnComponent(
+                      funcao: () {},
+                      nome: 'Salvar',
+                      gradiente: LinearGradient(
+                        colors: [
+                          Colors.orange.shade400,
+                          Colors.orange,
+                        ],
+                      ),
+                    ),
+                    SizedBox(height: 10),
+                    BtnComponent(
+                      funcao: () {
+                        Navigator.pop(context);
+                      },
+                      nome: 'Cancelar',
+                      gradiente: LinearGradient(
+                        colors: [
+                          Colors.grey.shade400,
+                          Colors.grey.shade600,
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              )
+            ],
+          )),
         ),
       ),
     );

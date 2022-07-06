@@ -18,28 +18,23 @@ class ProdutosTable extends StatelessWidget {
         DataColumn(numeric: true, label: Text('Código')),
         DataColumn(label: Text('Nome')),
         DataColumn(label: Text('')),
-        DataColumn(label: Text('')),
       ],
       rows: [
         // ignore: prefer_const_literals_to_create_immutables
         DataRow(selected: selected(), cells: [
           DataCell(Text('001')),
-          DataCell(Text('Maçã')),
+          DataCell(Text('Maçã Verde')),
           DataCell(
             TextButton(
               onPressed: () {
                 Navigator.pushNamed(context, '/editarProdutos');
               },
               child: Icon(
-                Icons.edit,
+                Icons.info_outlined,
                 color: Colors.purple,
               ),
             ),
           ),
-          DataCell(Icon(
-            Icons.remove_red_eye,
-            color: Colors.purple,
-          )),
         ]),
       ],
     );

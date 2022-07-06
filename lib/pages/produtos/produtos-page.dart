@@ -14,7 +14,9 @@ class ProdutosPage extends StatelessWidget {
         child: Center(
           child: Column(
             children: [
-              topBarComponent(),
+              topBarComponent(
+                titulo: 'Produtos',
+              ),
               SizedBox(
                 height: 20,
               ),
@@ -31,7 +33,15 @@ class ProdutosPage extends StatelessWidget {
                     right: Adaptive.h(5),
                     top: 15,
                   ),
-                  child: BtnComponent()),
+                  child: BtnComponent(
+                    funcao: () {},
+                    gradiente: LinearGradient(
+                      colors: [
+                        Colors.orange.shade400,
+                        Colors.orange,
+                      ],
+                    ),
+                  )),
             ],
           ),
         ),

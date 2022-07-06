@@ -4,7 +4,11 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
 class topBarComponent extends StatelessWidget {
-  const topBarComponent({Key? key}) : super(key: key);
+  String titulo;
+  topBarComponent({
+    Key? key,
+    this.titulo = 'titulo',
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +25,7 @@ class topBarComponent extends StatelessWidget {
       ),
       child: Center(
           child: Text(
-        'Produtos',
+        titulo,
         style: TextStyle(
           fontSize: 26,
           fontWeight: FontWeight.bold,

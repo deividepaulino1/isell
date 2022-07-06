@@ -1,10 +1,21 @@
+// ignore_for_file: avoid_init_to_null
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
 class BtnComponent extends StatelessWidget {
-  const BtnComponent({Key? key}) : super(key: key);
+  String nome;
+  LinearGradient gradiente;
+  void Function() funcao;
+
+  BtnComponent({
+    Key? key,
+    this.nome = 'Cadastrar',
+    required this.gradiente,
+    required this.funcao,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -12,21 +23,15 @@ class BtnComponent extends StatelessWidget {
       height: 60,
       width: double.infinity,
       decoration: BoxDecoration(
-        color: Colors.orange,
-        gradient: LinearGradient(
-          colors: [
-            Colors.orange.shade400,
-            Colors.orange,
-          ],
-        ),
+        gradient: gradiente,
         borderRadius: BorderRadius.all(
           Radius.circular(10),
         ),
       ),
       child: TextButton(
-        onPressed: () {},
+        onPressed: funcao,
         child: Text(
-          'Cadastrar',
+          nome,
           style: TextStyle(
             fontSize: 24,
             fontWeight: FontWeight.w400,
