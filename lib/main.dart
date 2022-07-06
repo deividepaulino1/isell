@@ -49,7 +49,7 @@ class MyApp extends StatelessWidget {
                 return PageTransition(
                   child: EditarProdutosPage(),
                   //aqui define o tipo de animação de transição de tela
-                  type: PageTransitionType.topToBottom,
+                  type: PageTransitionType.leftToRight,
                   settings: settings,
                 );
 
