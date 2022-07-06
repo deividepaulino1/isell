@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:isell/pages/ajustes-page.dart';
 import 'package:isell/pages/caixa-page.dart';
-import 'package:isell/pages/clientes-page.dart';
+import 'package:isell/pages/clientes/editarClientes-page.dart';
 import 'package:isell/pages/home-page.dart';
 import 'package:isell/pages/login-page.dart';
 import 'package:isell/pages/produtos/editarProdutos-page.dart';
@@ -50,6 +50,13 @@ class MyApp extends StatelessWidget {
                   child: EditarProdutosPage(),
                   //aqui define o tipo de animação de transição de tela
                   type: PageTransitionType.leftToRight,
+                  settings: settings,
+                );
+              case '/editarClientes':
+                return PageTransition(
+                  child: EditarClientesPage(),
+                  //aqui define o tipo de animação de transição de tela
+                  type: PageTransitionType.rightToLeft,
                   settings: settings,
                 );
 
