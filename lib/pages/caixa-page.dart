@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:isell/pages/ajustes-page.dart';
 import 'package:isell/pages/clientes-page.dart';
-import 'package:isell/pages/produtos-page.dart';
 import 'package:isell/pages/vendas-page.dart';
 
 class CaixaPage extends StatefulWidget {
