@@ -20,7 +20,7 @@ class _CaixaPageState extends State<CaixaPage> {
     return SingleChildScrollView(
       child: GestureDetector(
         onTap: () {
-          Navigator.pushNamed(context, '/');
+          Navigator.pushNamed(context, '/caixa/clientes');
         },
         child: Center(
           child: Padding(

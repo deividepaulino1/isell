@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:isell/pages/ajustes-page.dart';
-import 'package:isell/pages/caixa-page.dart';
+import 'package:isell/pages/caixa/caixa-page.dart';
 import 'package:isell/pages/clientes-page.dart';
 import 'package:isell/pages/produtos/produtos-page.dart';
 import 'package:isell/pages/vendas-page.dart';
