@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:isell/pages/ajustes-page.dart';
-import 'package:isell/pages/caixa/busca-cliente.dart';
 import 'package:isell/pages/caixa/caixa-page.dart';
-import 'package:isell/pages/clientes-page.dart';
-import 'package:isell/pages/caixa-page.dart';
+import 'package:isell/pages/caixa/clientes-page.dart';
+import 'package:isell/pages/caixa/inicioVenda.dart';
 import 'package:isell/pages/clientes/editarClientes-page.dart';
 import 'package:isell/pages/home-page.dart';
 import 'package:isell/pages/login-page.dart';
@@ -11,6 +10,7 @@ import 'package:isell/pages/produtos/editarProdutos-page.dart';
 import 'package:isell/pages/vendas-page.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -66,8 +66,15 @@ class MyApp extends StatelessWidget {
 
                 case '/caixa/clientes':
                 return PageTransition(
-                  child: BuscaClientePage(),
-                  type: PageTransitionType.leftToRight,
+                  child: SearchClientPage(),
+                  type: PageTransitionType.rightToLeft,
+                  settings: settings,
+                );
+                
+                case '/inicioVenda':
+                return PageTransition(
+                  child: InicioVenda(),
+                  type: PageTransitionType.rightToLeft,
                   settings: settings,
                 );
 
