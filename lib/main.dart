@@ -5,9 +5,10 @@ import 'package:isell/pages/clientes/editarClientes-page.dart';
 import 'package:isell/pages/home-page.dart';
 import 'package:isell/pages/login-page.dart';
 import 'package:isell/pages/produtos/editarProdutos-page.dart';
-import 'package:isell/pages/vendas-page.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+
+import 'pages/vendas/visualizar-venda-page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -55,6 +56,13 @@ class MyApp extends StatelessWidget {
               case '/editarClientes':
                 return PageTransition(
                   child: EditarClientesPage(),
+                  //aqui define o tipo de animação de transição de tela
+                  type: PageTransitionType.rightToLeft,
+                  settings: settings,
+                );
+              case '/editarVendas':
+                return PageTransition(
+                  child: EditarVendasPage(),
                   //aqui define o tipo de animação de transição de tela
                   type: PageTransitionType.rightToLeft,
                   settings: settings,

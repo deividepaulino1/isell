@@ -1,8 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:isell/pages/ajustes-page.dart';
-import 'package:isell/pages/vendas-page.dart';
 
 class CaixaPage extends StatefulWidget {
   const CaixaPage({Key? key}) : super(key: key);
