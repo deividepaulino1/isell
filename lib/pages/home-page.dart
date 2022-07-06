@@ -4,6 +4,8 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:isell/pages/ajustes-page.dart';
 import 'package:isell/pages/caixa/caixa-page.dart';
 import 'package:isell/pages/clientes-page.dart';
+import 'package:isell/pages/caixa-page.dart';
+import 'package:isell/pages/clientes/clientes-page.dart';
 import 'package:isell/pages/produtos/produtos-page.dart';
 import 'package:isell/pages/vendas-page.dart';
 
@@ -20,31 +22,54 @@ class _HomePageState extends State<HomePage> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _selectedIndex,
-        onTap: (
-          select,
-        ) {
-          setState(() {
-            _selectedIndex = select;
-          });
-        },
-        type: BottomNavigationBarType.fixed,
-        // ignore: prefer_const_literals_to_create_immutables
-        items: [
-          const BottomNavigationBarItem(
-            icon: Icon(Icons.assessment_outlined),
-            label: 'Vendas',
-          ),
-          const BottomNavigationBarItem(
-              icon: Icon(Icons.people_outline), label: 'Clientes'),
-          const BottomNavigationBarItem(
-              icon: Icon(Icons.attach_money_outlined), label: 'Caixa'),
-          const BottomNavigationBarItem(
-              icon: Icon(Icons.all_inbox_rounded), label: 'Produtos'),
-          const BottomNavigationBarItem(
-              icon: Icon(Icons.settings), label: 'Ajustes'),
-        ],
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+            gradient: LinearGradient(colors: [
+          Colors.purple,
+          Colors.deepPurple.shade700,
+        ])),
+        child: Stack(
+          children: [
+            BottomNavigationBar(
+              backgroundColor: Colors.transparent,
+              unselectedItemColor: Colors.white,
+              selectedItemColor: Colors.orange,
+              currentIndex: _selectedIndex,
+              onTap: (
+                select,
+              ) {
+                setState(() {
+                  _selectedIndex = select;
+                });
+              },
+              type: BottomNavigationBarType.fixed,
+              // ignore: prefer_const_literals_to_create_immutables
+              items: [
+                const BottomNavigationBarItem(
+                  activeIcon: Icon(Icons.assessment),
+                  icon: Icon(Icons.assessment_outlined, color: Colors.white),
+                  label: 'Vendas',
+                ),
+                const BottomNavigationBarItem(
+                    activeIcon: Icon(Icons.people),
+                    icon: Icon(Icons.people_outline),
+                    label: 'Clientes'),
+                const BottomNavigationBarItem(
+                    activeIcon: Icon(Icons.store),
+                    icon: Icon(Icons.attach_money_outlined),
+                    label: 'Caixa'),
+                const BottomNavigationBarItem(
+                    activeIcon: Icon(Icons.all_inbox_outlined),
+                    icon: Icon(Icons.all_inbox_rounded),
+                    label: 'Produtos'),
+                const BottomNavigationBarItem(
+                    activeIcon: Icon(Icons.settings_applications),
+                    icon: Icon(Icons.settings),
+                    label: 'Ajustes'),
+              ],
+            ),
+          ],
+        ),
       ),
       body: SingleChildScrollView(child: routes(_selectedIndex)),
     );
