@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:isell/pages/ajustes-page.dart';
+import 'package:isell/pages/ajustes/ajustes-page.dart';
 import 'package:isell/pages/caixa-page.dart';
 import 'package:isell/pages/clientes/clientes-page.dart';
 import 'package:isell/pages/produtos/produtos-page.dart';
