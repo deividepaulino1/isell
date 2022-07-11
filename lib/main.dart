@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:isell/pages/ajustes-page.dart';
 import 'package:isell/pages/caixa/caixa-page.dart';
 import 'package:isell/pages/caixa/clientes-page.dart';
+import 'package:isell/pages/caixa/dados-cliente-page.dart';
 import 'package:isell/pages/caixa/inicioVenda.dart';
+import 'package:isell/pages/caixa/pagamento-page.dart';
 import 'package:isell/pages/clientes/editarClientes-page.dart';
 import 'package:isell/pages/home-page.dart';
 import 'package:isell/pages/login-page.dart';
@@ -64,9 +66,16 @@ class MyApp extends StatelessWidget {
                   settings: settings,
                 );
 
-                case '/caixa/clientes':
+                case '/inserirClientes':
                 return PageTransition(
                   child: SearchClientPage(),
+                  type: PageTransitionType.rightToLeft,
+                  settings: settings,
+                );
+
+                case '/dadosCliente':
+                return PageTransition(
+                  child: DadosClientePage(),
                   type: PageTransitionType.rightToLeft,
                   settings: settings,
                 );
@@ -77,6 +86,14 @@ class MyApp extends StatelessWidget {
                   type: PageTransitionType.rightToLeft,
                   settings: settings,
                 );
+
+                case '/pagamento':
+                return PageTransition(
+                  child: PagamentoPage(),
+                  type: PageTransitionType.rightToLeft,
+                  settings: settings,
+                );
+
 
               default:
                 return null;
