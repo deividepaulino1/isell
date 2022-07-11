@@ -17,10 +17,10 @@ class _SearchClientPageState extends State<SearchClientPage> {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Scaffold(
-        resizeToAvoidBottomInset: false,
-        body: SafeArea(
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
+      body: SingleChildScrollView(
+        child: SafeArea(
           child: Center(
             child: Column(
               children: [
