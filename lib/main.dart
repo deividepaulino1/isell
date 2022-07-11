@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:isell/components/theme/themeChanger.dart';
-import 'package:isell/pages/ajustes/ajustes-page.dart';
-import 'package:isell/pages/caixa/caixa-page.dart';
 import 'package:isell/pages/caixa/clientes-page.dart';
 import 'package:isell/pages/caixa/inicioVenda.dart';
 import 'package:isell/pages/clientes/editarClientes-page.dart';
@@ -12,6 +10,8 @@ import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
+import 'pages/caixa/dados-cliente-page.dart';
+import 'pages/caixa/pagamento-page.dart';
 import 'pages/vendas/visualizar-venda-page.dart';
 
 void main() => runApp(MultiProvider(
@@ -86,6 +86,34 @@ class iSell extends StatelessWidget {
               case '/inicioVenda':
                 return PageTransition(
                   child: InicioVenda(),
+                  type: PageTransitionType.rightToLeft,
+                  settings: settings,
+                );
+
+              case '/inserirClientes':
+                return PageTransition(
+                  child: SearchClientPage(),
+                  type: PageTransitionType.rightToLeft,
+                  settings: settings,
+                );
+
+              case '/dadosCliente':
+                return PageTransition(
+                  child: DadosClientePage(),
+                  type: PageTransitionType.rightToLeft,
+                  settings: settings,
+                );
+
+              case '/inicioVenda':
+                return PageTransition(
+                  child: InicioVenda(),
+                  type: PageTransitionType.rightToLeft,
+                  settings: settings,
+                );
+
+              case '/pagamento':
+                return PageTransition(
+                  child: PagamentoPage(),
                   type: PageTransitionType.rightToLeft,
                   settings: settings,
                 );
