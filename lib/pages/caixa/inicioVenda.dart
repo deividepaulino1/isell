@@ -13,10 +13,10 @@ class InicioVenda extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: (Scaffold(
-        resizeToAvoidBottomInset: false,
-        body: SafeArea(
+    return (Scaffold(
+      resizeToAvoidBottomInset: false,
+      body: SingleChildScrollView(
+        child: SafeArea(
           child: Center(
             child: Column(
               children: [
@@ -51,7 +51,7 @@ class InicioVenda extends StatelessWidget {
                 ),
                 SizedBox(
                   width: Adaptive.w(90),
-    
+          
                   child: Card(
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(25),
@@ -126,7 +126,7 @@ class InicioVenda extends StatelessWidget {
                   
                 ),
                     SizedBox(height: 5),
-    
+          
                 SizedBox(
                       height: 50,
                       width: 348,
@@ -167,7 +167,7 @@ class InicioVenda extends StatelessWidget {
             ),
           ),
         ),
-      )),
-    );
+      ),
+    ));
   }
 }
