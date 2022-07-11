@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:isell/components/theme/themeChanger.dart';
 import 'package:isell/pages/ajustes/ajustes-page.dart';
-import 'package:isell/pages/caixa-page.dart';
+import 'package:isell/pages/caixa/caixa-page.dart';
+import 'package:isell/pages/caixa/clientes-page.dart';
+import 'package:isell/pages/caixa/inicioVenda.dart';
 import 'package:isell/pages/clientes/editarClientes-page.dart';
 import 'package:isell/pages/home-page.dart';
 import 'package:isell/pages/login-page.dart';
@@ -70,6 +72,20 @@ class iSell extends StatelessWidget {
                 return PageTransition(
                   child: EditarVendasPage(),
                   //aqui define o tipo de animação de transição de tela
+                  type: PageTransitionType.rightToLeft,
+                  settings: settings,
+                );
+
+              case '/caixa/clientes':
+                return PageTransition(
+                  child: SearchClientPage(),
+                  type: PageTransitionType.rightToLeft,
+                  settings: settings,
+                );
+
+              case '/inicioVenda':
+                return PageTransition(
+                  child: InicioVenda(),
                   type: PageTransitionType.rightToLeft,
                   settings: settings,
                 );
