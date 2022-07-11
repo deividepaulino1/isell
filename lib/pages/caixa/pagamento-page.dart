@@ -178,7 +178,21 @@ class PagamentoPage extends StatelessWidget {
                         SizedBox(height: 20,),
                         // Padding(padding: EdgeInsets.all(6)),
                         Text('Pagamento', textAlign: TextAlign.start,),
-                        Padding(padding: EdgeInsets.only(left: 5)),
+                        Padding(padding: EdgeInsets.only(left: 5, bottom: 40)),
+                        Text('R\$ 10,00', textAlign: TextAlign.start,),
+                        Padding(padding: EdgeInsets.only(left: 5, bottom: 40)),
+                        Text('Cartão', textAlign: TextAlign.start,),
+                      ],
+                    ),
+                     Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      // ignore: prefer_const_literals_to_create_immutables
+                      children: [
+                        SizedBox(height: 20,),
+                        // Padding(padding: EdgeInsets.all(6)),
+                        Text('Pagamento', textAlign: TextAlign.start,),
+                        Padding(padding: EdgeInsets.only(left: 5, bottom: 40)),
                         Text('R\$ 10,00', textAlign: TextAlign.start,),
                         Padding(padding: EdgeInsets.only(left: 5)),
                         Text('Cartão', textAlign: TextAlign.start,),
@@ -191,29 +205,13 @@ class PagamentoPage extends StatelessWidget {
                       children: [
                         SizedBox(height: 20,),
                         // Padding(padding: EdgeInsets.all(6)),
-                        Text('Pagamento', textAlign: TextAlign.start,),
-                        Padding(padding: EdgeInsets.only(left: 5)),
-                        Text('R\$ 10,00', textAlign: TextAlign.start,),
-                        Padding(padding: EdgeInsets.only(left: 5)),
-                        Text('Cartão', textAlign: TextAlign.start,),
-                      ],
-                    ),
-                     Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      // ignore: prefer_const_literals_to_create_immutables
-                      children: [
-                        SizedBox(height: 20,),
-                        // Padding(padding: EdgeInsets.all(6)),
-                        Text('Pagamento', textAlign: TextAlign.start,),
-                        Padding(padding: EdgeInsets.only(left: 5)),
-                        Text('R\$ 10,00', textAlign: TextAlign.start,),
-                        Padding(padding: EdgeInsets.only(left: 5)),
-                        Text('Cartão', textAlign: TextAlign.start,),
+                        Text('Total Pago:', textAlign: TextAlign.start,),
+                        Padding(padding: EdgeInsets.only(left: 30, right: 100)),
+                        Text('20,00', textAlign: TextAlign.end,)
                       ],
                     ),
                         Container(
-                          height: Adaptive.h(8),
+                          height: Adaptive.h(2),
                         ),
                   ],
                 ),
