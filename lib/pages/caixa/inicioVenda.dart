@@ -47,122 +47,57 @@ class InicioVenda extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  height: 10,
+                  height: 20,
                 ),
+                Column(
+                  children: [
+                    Container(
+                      width: Adaptive.w(80),
+                      height: Adaptive.h(60),
+                      child: ComprovanteDataTable(),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                  ],
+                ),
+                SizedBox(height: 5),
                 SizedBox(
-                  width: Adaptive.w(90),
-          
-                  child: Card(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(25),
-                        side: BorderSide(
-                          color: Color.fromRGBO(112, 112, 112, 1),
-                        )),
-                    child: Column(
-                      
-                      children: [
-                        Padding(padding: EdgeInsets.only(top: 10)),
-                        Container(
-                          child: Text(
-                            'Loja do Deivide',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                        Padding(padding: EdgeInsets.only(top: 5)),
-                        Text(
-                          'Rua 11 de Agosto 682 - Centro',
-                        ),
-                        Padding(padding: EdgeInsets.only(top: 5)),
-                        Text(
-                          'CNPJ: 05.481.336.0001/37',
-                        ),
-                        Padding(padding: EdgeInsets.only(top: 10)),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              "Data: 14/09/2022 12:01",
-                              style: TextStyle(fontSize: 14),
-                            ),
-                            Padding(padding: EdgeInsets.only(left: 45, right: 45)),
-                            Text('Venda: 0010', style: TextStyle(fontSize: 14)),
-                          ],
-                        ),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        Text(
-                          'Comprovante de Venda',
-                          style:
-                              TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Container(
-                          
-                          height: Adaptive.h(30),
-                          width: Adaptive.w(90),
-                          child: ComprovanteDataTable(),
-                        ),
-                        Container(
-                          padding: EdgeInsets.only(top: 20),
-                          child: Text(
-                            'TOTAL: 40,00',
-                            style: TextStyle(
-                                color: Color.fromRGBO(147, 22, 255, 1),
-                                fontSize: 35,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 15,
-                        ),
-                      ],
+                  height: 50,
+                  width: 348,
+                  child: Padding(
+                    padding: const EdgeInsets.only(right: 10, left: 10),
+                    child: BtnComponent(
+                      funcao: () {
+                        Navigator.pushNamed(context, '/pagamento');
+                      },
+                      nome: "Confirmar",
+                      gradiente: LinearGradient(colors: [
+                        Colors.orange,
+                        Colors.orange.shade400,
+                      ]),
                     ),
                   ),
-                  
                 ),
-                    SizedBox(height: 5),
-          
+                SizedBox(height: 10),
                 SizedBox(
-                      height: 50,
-                      width: 348,
-                      child: Padding(
-                        padding: const EdgeInsets.only(right: 10 , left: 10),
-                        child: BtnComponent(
-                          funcao: () {
-                            Navigator.pushNamed(context, '/pagamento');
-                          },
-                          nome: "Confirmar",
-                          gradiente: LinearGradient(colors: [
-                            Colors.orange,
-                            Colors.orange.shade400,
-                          ]),
-                        ),
-                      ),
+                  height: 50,
+                  width: 348,
+                  child: Padding(
+                    padding: const EdgeInsets.only(right: 10, left: 10),
+                    child: BtnComponent(
+                      funcao: () {
+                        Navigator.pushNamed(context, '/inserirClientes');
+                      },
+                      nome: "Alterar Cliente",
+                      // ignore: prefer_const_literals_to_create_immutables
+                      gradiente: LinearGradient(colors: [
+                        Colors.grey,
+                        Colors.grey,
+                      ]),
                     ),
-                    SizedBox(height: 5),
-                    SizedBox(
-                      height: 50,
-                      width: 348,
-                      child: Padding(
-                        padding: const EdgeInsets.only(right: 10 ,  left: 10),
-                        child: BtnComponent(
-                          funcao: () {
-                            Navigator.pushNamed(context, '/inserirClientes');
-                          },
-                          nome: "Alterar Cliente",
-                          // ignore: prefer_const_literals_to_create_immutables
-                          gradiente: LinearGradient(colors: [
-                            Colors.grey,
-                            Colors.grey,
-                          ]),
-                        ),
-                      ),
-                    ),
+                  ),
+                ),
               ],
             ),
           ),

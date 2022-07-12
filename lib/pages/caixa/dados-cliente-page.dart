@@ -22,7 +22,7 @@ class DadosClientePage extends StatelessWidget {
               topBarComponent(
                 titulo: 'Dados do Cliente',
               ),
-              Padding(padding: EdgeInsets.only(top: 100)),
+              Padding(padding: EdgeInsets.only(top: 50)),
               Text(
                 'Daniel Manoel',
                 style: TextStyle(
@@ -31,6 +31,9 @@ class DadosClientePage extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
+              SizedBox(
+                height: 20,
+              ),
               Card(
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(25),
@@ -38,14 +41,16 @@ class DadosClientePage extends StatelessWidget {
                     color: Color.fromRGBO(112, 112, 112, 1),
                   ),
                 ),
-                child: Column(
-                  children: [
-                    Container(
-                      height: Adaptive.h(40),
-                      width: Adaptive.w(90),
-                      child: DadosClienteTable(),
-                    ),
-                  ],
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      Container(
+                        height: Adaptive.h(42),
+                        width: Adaptive.w(90),
+                        child: DadosClienteTable(),
+                      ),
+                    ],
+                  ),
                 ),
               ),
               SizedBox(height: 20),

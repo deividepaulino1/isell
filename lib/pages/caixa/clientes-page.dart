@@ -34,10 +34,10 @@ class _SearchClientPageState extends State<SearchClientPage> {
                     Padding(
                       padding: const EdgeInsets.only(left: 30, right: 20),
                       child: TextFormField(
-                        validator: ((value) {
-                          if(value?.length == null){
+                        validator: ((cliente) {
+                          if(cliente != 'Daniel'){
                             return "Vendas a Vista";
-                          }
+                          } return 'Cliente Daniel';
           
                         }) ,
                         textAlignVertical: TextAlignVertical.bottom,

@@ -3,6 +3,7 @@ import 'package:isell/pages/ajustes-page.dart';
 import 'package:isell/pages/caixa/caixa-page.dart';
 import 'package:isell/pages/caixa/clientes-page.dart';
 import 'package:isell/pages/caixa/dados-cliente-page.dart';
+import 'package:isell/pages/caixa/final-venda.dart';
 import 'package:isell/pages/caixa/inicioVenda.dart';
 import 'package:isell/pages/caixa/pagamento-page.dart';
 import 'package:isell/pages/clientes/editarClientes-page.dart';
@@ -90,6 +91,13 @@ class MyApp extends StatelessWidget {
                 case '/pagamento':
                 return PageTransition(
                   child: PagamentoPage(),
+                  type: PageTransitionType.rightToLeft,
+                  settings: settings,
+                );
+
+                case '/finalVenda':
+                return PageTransition(
+                  child: FinalVenda(),
                   type: PageTransitionType.rightToLeft,
                   settings: settings,
                 );
