@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:isell/pages/ajustes-page.dart';
+import 'package:isell/pages/cadastro/registro-page.dart';
 import 'package:isell/pages/caixa/caixa-page.dart';
 import 'package:isell/pages/caixa/clientes-page.dart';
 import 'package:isell/pages/caixa/dados-cliente-page.dart';
@@ -98,6 +99,13 @@ class MyApp extends StatelessWidget {
                 case '/finalVenda':
                 return PageTransition(
                   child: FinalVenda(),
+                  type: PageTransitionType.rightToLeft,
+                  settings: settings,
+                );
+
+                case '/cadastro': 
+                return PageTransition(
+                  child: Cadastro(),
                   type: PageTransitionType.rightToLeft,
                   settings: settings,
                 );

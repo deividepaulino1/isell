@@ -1,21 +1,29 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:isell/data/services/validatorLogin.dart';
+import 'package:flutter/src/foundation/key.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:isell/components/shared/btn-component.dart';
+import 'package:isell/components/shared/topBar-component.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:validatorless/validatorless.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+import '../../data/services/validatorLogin.dart';
+
+bool validaSnackBar = true;
+
+class Cadastro extends StatefulWidget {
+  const Cadastro({Key? key}) : super(key: key);
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<Cadastro> createState() => _CadastroState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _CadastroState extends State<Cadastro> {
   final _formKey = GlobalKey<FormState>();
   final _emailEC = TextEditingController();
   final _senhaEC = TextEditingController();
-
+  var _scaffoldKey = new GlobalKey<ScaffoldState>();
   @override
   void dispose() {
     _emailEC.dispose();
@@ -26,10 +34,12 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       body: SingleChildScrollView(
         child: Center(
-          child: Column(
-            children: [
+          child: SafeArea(
+            child: Column(children: [
+              topBarComponent(titulo: 'Cadastre-se'),
               Padding(
                 padding: const EdgeInsets.only(top: 60),
                 child: Container(
@@ -77,78 +87,47 @@ class _LoginPageState extends State<LoginPage> {
                         SizedBox(
                           height: 10,
                         ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            TextButton(
-                              onPressed: () {},
-                              child: const Text(
-                                'Esqueceu sua senha?',
-                                style: TextStyle(
-                                  color: Colors.purple,
-                                ),
-                              ),
-                            )
-                          ],
-                        ),
                       ],
                     ),
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(
-                  left: 15,
-                  right: 15,
-                  bottom: 40,
-                ),
-                child: Container(
-                  width: double.infinity,
-                  height: 60,
-                  color: Colors.yellow.shade700,
-                  child: TextButton(
-                    onPressed: () {
-                      _formKey.currentState?.validate();
-                      Navigator.pushNamed(context, '/home');
-                    },
-                    child: const Text(
-                      'Fazer Login',
-                      style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 20,
-                      ),
+              SizedBox(
+                height: 10,
+              ),
+              Container(
+                width: Adaptive.w(85),
+                height: 60,
+                color: Colors.yellow.shade700,
+                child: TextButton(
+                  onPressed: () {
+                    
+                  },
+                  child: const Text(
+                    'Finalizar Cadastro',
+                    style: TextStyle(
+                      color: Colors.grey,
+                      fontSize: 20,
                     ),
                   ),
                 ),
               ),
-              Row(
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Container(
-                      height: 50,
-                      child: Image.asset('assets/logotipo/facebook.png')),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Container(
-                      height: 50,
-                      child: Image.asset('assets/logotipo/google.png')),
+                  TextButton(
+                    onPressed: (){
+                    }
+                  , child: Text('Cancelar')),
                 ],
               ),
-              SizedBox(
-                height: 15,
-              ),
-              TextButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/cadastro');
-                },
-                child: Text('Não possui uma conta?',style: TextStyle(color: Colors.grey),),
-              
-              ),
-            ],
+            ]),
           ),
         ),
       ),
     );
   }
 }
+
+//(condicao)? true : false

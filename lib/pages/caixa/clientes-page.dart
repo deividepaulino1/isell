@@ -61,7 +61,7 @@ class _SearchClientPageState extends State<SearchClientPage> {
                               },
                               icon: Icon(
                                 Icons.arrow_forward,
-                                color: Color.fromRGBO(255, 213, 3, 1),
+                                color: Colors.orange,
                               ),
                             )),
                       ),
