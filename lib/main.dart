@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:isell/components/theme/themeChanger.dart';
 import 'package:isell/pages/caixa/clientes-page.dart';
 import 'package:isell/pages/caixa/inicioVenda.dart';
+import 'package:isell/pages/clientes/cadastrar-cliente-page.dart';
 import 'package:isell/pages/clientes/editarClientes-page.dart';
 import 'package:isell/pages/home-page.dart';
 import 'package:isell/pages/exemplo-firebase.dart';
@@ -122,6 +123,13 @@ class iSell extends StatelessWidget {
               case '/registrar':
                 return PageTransition(
                   child: SignPage(),
+                  type: PageTransitionType.rightToLeft,
+                  settings: settings,
+                );
+
+              case '/cadastrar':
+                return PageTransition(
+                  child: CadastrarCliente(),
                   type: PageTransitionType.rightToLeft,
                   settings: settings,
                 );

@@ -35,7 +35,9 @@ class ClientesPage extends StatelessWidget {
                     top: 15,
                   ),
                   child: BtnComponent(
-                    funcao: () {},
+                    funcao: () {
+                      Navigator.pushNamed(context, '/cadastrar');
+                    },
                     gradiente: LinearGradient(
                       colors: [
                         Colors.orange.shade400,

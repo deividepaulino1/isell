@@ -59,6 +59,7 @@ class _LoginPageState extends State<LoginPage> {
                         TextFormField(
                           validator: Validatorless.multiple([
                             Validatorless.required('O E-mail é obrigatório'),
+                            Validatorless.email('Email digitado é inválido'),
                           ]),
                           controller: _emailEC,
                           decoration: InputDecoration(
@@ -72,8 +73,8 @@ class _LoginPageState extends State<LoginPage> {
                         TextFormField(
                           validator: Validatorless.multiple([
                             Validatorless.required('A senha é obrigatória'),
-                            Validatorless.min(6,
-                                'A senha necessita ter pelo menos 6 caracteres'),
+                            Validatorless.min(
+                                6, 'Deve conter pelo menos 6 caracteres'),
                           ]),
                           controller: _senhaEC,
                           obscureText: _exibirSenha,
@@ -98,7 +99,26 @@ class _LoginPageState extends State<LoginPage> {
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
                             TextButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                AlertDialog alert = AlertDialog(
+                                  title: Text('Recuperar senha'),
+                                  content: Text('Tá anotada no caderninho'),
+                                  actions: [
+                                    TextButton(
+                                      onPressed: () {
+                                        Navigator.of(context).pop();
+                                      },
+                                      child: Text('Ok'),
+                                    ),
+                                  ],
+                                );
+                                showDialog(
+                                  context: context,
+                                  builder: (BuildContext context) {
+                                    return alert;
+                                  },
+                                );
+                              },
                               child: const Text(
                                 'Esqueceu sua senha?',
                                 style: TextStyle(
@@ -125,7 +145,11 @@ class _LoginPageState extends State<LoginPage> {
                   color: Colors.yellow.shade700,
                   child: TextButton(
                     onPressed: () {
-                      doLogin();
+                      if (_formKey.currentState!.validate()) {
+                        doLogin();
+                      } else {
+                        return;
+                      }
                     },
                     child: const Text(
                       'Fazer Login',
@@ -177,7 +201,7 @@ class _LoginPageState extends State<LoginPage> {
     if (_fazerLogin != 200) {
       final snackbar = SnackBar(
         content: Text(
-          'Erro ao fazer login',
+          'Usuário ou senha inválidos',
           textAlign: TextAlign.center,
         ),
         backgroundColor: Colors.deepPurple,
