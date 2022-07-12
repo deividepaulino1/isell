@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:isell/data/services/login.service.dart';
-import 'package:isell/data/services/validatorLogin.dart';
 import 'package:isell/pages/exemplo-signup.dart';
 import 'package:validatorless/validatorless.dart';
 
@@ -60,7 +59,6 @@ class _LoginPageState extends State<LoginPage> {
                         TextFormField(
                           validator: Validatorless.multiple([
                             Validatorless.required('O E-mail é obrigatório'),
-                            ValidatorLogin.validaEmail('E-mail Inválido')
                           ]),
                           controller: _emailEC,
                           decoration: InputDecoration(
@@ -76,7 +74,6 @@ class _LoginPageState extends State<LoginPage> {
                             Validatorless.required('A senha é obrigatória'),
                             Validatorless.min(6,
                                 'A senha necessita ter pelo menos 6 caracteres'),
-                            ValidatorLogin.validaSenha('Senha Inválida')
                           ]),
                           controller: _senhaEC,
                           obscureText: _exibirSenha,

@@ -17,7 +17,7 @@ class LearningFirebase extends StatefulWidget {
 
 class _LearningFirebaseState extends State<LearningFirebase> {
   List<String> listStrings = <String>["Nenhum registro encontrado"];
-  Uri url = Uri.https(DadosGlobais.baseUrl, "/words.json");
+  Uri url = Uri.https(Settings.baseUrl, "/words.json");
 
   @override
   Widget build(BuildContext context) {
