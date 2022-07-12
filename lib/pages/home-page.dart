@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:isell/pages/ajustes-page.dart';
-import 'package:isell/pages/caixa/caixa-page.dart';
-import 'package:isell/pages/caixa/clientes-page.dart';
+
+import 'package:isell/pages/ajustes/ajustes-page.dart';
 import 'package:isell/pages/clientes/clientes-page.dart';
 import 'package:isell/pages/produtos/produtos-page.dart';
-import 'package:isell/pages/vendas-page.dart';
+import 'package:isell/pages/vendas/vendas-page.dart';
+
+import 'caixa/caixa-page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);

@@ -1,8 +1,11 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, no_leading_underscores_for_local_identifiers, use_build_context_synchronously
 
 import 'package:flutter/material.dart';
-import 'package:isell/data/services/validatorLogin.dart';
+import 'package:isell/data/services/login.service.dart';
+import 'package:isell/pages/exemplo-signup.dart';
 import 'package:validatorless/validatorless.dart';
+
+bool _exibirSenha = true;
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -21,6 +24,12 @@ class _LoginPageState extends State<LoginPage> {
     _emailEC.dispose();
     _senhaEC.dispose();
     super.dispose();
+  }
+
+  void exibirSenha() {
+    setState(() {
+      _exibirSenha = !_exibirSenha;
+    });
   }
 
   @override
@@ -50,7 +59,6 @@ class _LoginPageState extends State<LoginPage> {
                         TextFormField(
                           validator: Validatorless.multiple([
                             Validatorless.required('O E-mail é obrigatório'),
-                            ValidatorLogin.validaEmail('E-mail Inválido')
                           ]),
                           controller: _emailEC,
                           decoration: InputDecoration(
@@ -66,10 +74,19 @@ class _LoginPageState extends State<LoginPage> {
                             Validatorless.required('A senha é obrigatória'),
                             Validatorless.min(6,
                                 'A senha necessita ter pelo menos 6 caracteres'),
-                            ValidatorLogin.validaSenha('Senha Inválida')
                           ]),
                           controller: _senhaEC,
+                          obscureText: _exibirSenha,
                           decoration: InputDecoration(
+                              suffixIcon: TextButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      exibirSenha();
+                                    });
+                                  },
+                                  child: Icon((_exibirSenha == false)
+                                      ? Icons.remove_red_eye
+                                      : Icons.remove_red_eye_outlined)),
                               hintText: 'Senha',
                               hintStyle: TextStyle(
                                   color: Color.fromRGBO(147, 22, 255, 0.5))),
@@ -108,8 +125,7 @@ class _LoginPageState extends State<LoginPage> {
                   color: Colors.yellow.shade700,
                   child: TextButton(
                     onPressed: () {
-                      _formKey.currentState?.validate();
-                      Navigator.pushNamed(context, '/home');
+                      doLogin();
                     },
                     child: const Text(
                       'Fazer Login',
@@ -145,10 +161,35 @@ class _LoginPageState extends State<LoginPage> {
                 child: Text('Não possui uma conta?',style: TextStyle(color: Colors.grey),),
               
               ),
+              TextButton(
+                child: Text('Não tem uma conta? '),
+                onPressed: () {
+                  Navigator.pushNamed(context, '/registrar');
+                },
+              ),
             ],
           ),
         ),
       ),
     );
+  }
+
+  doLogin() async {
+    final _fazerLogin =
+        await LoginService().fazerLogin(_emailEC.text, _senhaEC.text);
+
+    if (_fazerLogin == 200) {
+      Navigator.pushNamedAndRemoveUntil(context, '/home', (route) => false);
+    }
+    if (_fazerLogin != 200) {
+      final snackbar = SnackBar(
+        content: Text(
+          'Erro ao fazer login',
+          textAlign: TextAlign.center,
+        ),
+        backgroundColor: Colors.deepPurple,
+      );
+      ScaffoldMessenger.of(context).showSnackBar(snackbar);
+    }
   }
 }

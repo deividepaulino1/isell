@@ -1,8 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:isell/pages/ajustes-page.dart';
-import 'package:isell/pages/vendas-page.dart';
 
 class CaixaPage extends StatefulWidget {
   const CaixaPage({Key? key}) : super(key: key);
@@ -35,11 +33,17 @@ class _CaixaPageState extends State<CaixaPage> {
                 Padding(padding: EdgeInsets.all(60)),
                 Text(
                   'CAIXA LIVRE',
-                  style: TextStyle(fontSize: 45, fontWeight: FontWeight.bold, color: Color.fromRGBO(147, 22, 255, 1)),
+                  style: TextStyle(
+                      fontSize: 45,
+                      fontWeight: FontWeight.bold,
+                      color: Color.fromRGBO(147, 22, 255, 1)),
                 ),
                 Text(
                   'Toque para Vender',
-                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold, color: Color.fromRGBO(111, 108, 110, 0.5)),
+                  style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                      color: Color.fromRGBO(111, 108, 110, 0.5)),
                 )
               ],
             ),

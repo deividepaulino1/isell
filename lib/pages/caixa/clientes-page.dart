@@ -14,7 +14,7 @@ class SearchClientPage extends StatefulWidget {
 
 class _SearchClientPageState extends State<SearchClientPage> {
   String cliente = '';
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,12 +34,11 @@ class _SearchClientPageState extends State<SearchClientPage> {
                     Padding(
                       padding: const EdgeInsets.only(left: 30, right: 20),
                       child: TextFormField(
-                        validator: ((cliente) {
-                          if(cliente != 'Daniel'){
+                        validator: ((value) {
+                          if (value?.length == null) {
                             return "Vendas a Vista";
-                          } return 'Cliente Daniel';
-          
-                        }) ,
+                          }
+                        }),
                         textAlignVertical: TextAlignVertical.bottom,
                         // ignore: prefer_const_constructors
                         decoration: InputDecoration(
