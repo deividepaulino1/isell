@@ -6,7 +6,7 @@ import 'package:isell/data/settings.dart';
 class SignupService {
   signup(String email, String password) async {
     http.Response response = await http.post(
-      Uri.parse(Settings.urlSignup),
+      Uri.parse(Settings.urlCadastro),
       body: json.encode(
         {
           "email": email,
@@ -20,7 +20,7 @@ class SignupService {
 
   sign(String email, String password) async {
     http.Response response = await http.post(
-      Uri.parse(Settings.urlSign),
+      Uri.parse(Settings.urlLogin),
       body: json.encode(
         {
           "email": email,
