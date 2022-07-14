@@ -30,19 +30,7 @@ class _LearningFirebaseState extends State<LearningFirebase> {
               : RefreshIndicator(
                   onRefresh: () => _getInformationFromBack(),
                   child: ListView(
-                    children: [
-                      TextFormField(
-                        controller: _textController,
-                        decoration: InputDecoration(
-                            labelText: 'Insira uma palavra aqui'),
-                        textAlign: TextAlign.center,
-                      ),
-                      ElevatedButton(
-                        onPressed: () => _addStringToBack(),
-                        child: Text('Finalizar'),
-                      ),
-                      for (String s in listStrings) Text(s)
-                    ],
+                    children: [for (String s in listStrings) Text(s)],
                   ),
                 ),
         ),

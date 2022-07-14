@@ -44,6 +44,7 @@ dependencies:
   validatorless: ^1.2.1
   intl: ^0.17.0
   http: ^0.13.4
+  accordion: ^2.5.1
 
 
 dev_dependencies:

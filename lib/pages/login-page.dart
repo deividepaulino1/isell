@@ -176,7 +176,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   TextButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, '/cadastro');
+                      Navigator.pushNamed(context, '/cadastroUsuario');
                     },
                     child: Text(
                       'Não possui uma conta?',
@@ -202,7 +202,7 @@ class _LoginPageState extends State<LoginPage> {
     if (_fazerLogin != 200) {
       final snackbar = SnackBar(
         content: Text(
-          'Erro ao fazer login',
+          'Usuário ou senha inválidos',
           textAlign: TextAlign.center,
         ),
         backgroundColor: Colors.deepPurple,

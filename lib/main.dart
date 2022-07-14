@@ -4,10 +4,12 @@ import 'package:isell/pages/cadastro/registro-page.dart';
 import 'package:isell/pages/caixa/clientes-page.dart';
 import 'package:isell/pages/caixa/final-venda.dart';
 import 'package:isell/pages/caixa/inicioVenda.dart';
+import 'package:isell/pages/clientes/cadastrar-cliente-page.dart';
 import 'package:isell/pages/clientes/editarClientes-page.dart';
 import 'package:isell/pages/home-page.dart';
 import 'package:isell/pages/exemplo-firebase.dart';
 import 'package:isell/pages/login-page.dart';
+import 'package:isell/pages/produtos/cadastrar-produto-page.dart';
 import 'package:isell/pages/produtos/editarProdutos-page.dart';
 import 'package:isell/pages/exemplo-sign-page.dart';
 import 'package:page_transition/page_transition.dart';
@@ -108,22 +110,37 @@ class iSell extends StatelessWidget {
                   settings: settings,
                 );
 
-              case '/finalVenda':
+              // ignore: no_duplicate_case_values
+              case '/inicioVenda':
                 return PageTransition(
-                  child: FinalVenda(),
+                  child: const InicioVenda(),
                   type: PageTransitionType.rightToLeft,
                   settings: settings,
                 );
 
               case '/pagamento':
                 return PageTransition(
-                  child: PagamentoPage(),
+                  child: const PagamentoPage(),
                   type: PageTransitionType.rightToLeft,
                   settings: settings,
                 );
-              case '/cadastro':
+              case '/cadastroUsuario':
                 return PageTransition(
-                  child: CadastroPage(),
+                  child: const SignPage(),
+                  type: PageTransitionType.rightToLeft,
+                  settings: settings,
+                );
+
+              case '/cadastrar':
+                return PageTransition(
+                  child: const CadastrarCliente(),
+                  type: PageTransitionType.rightToLeft,
+                  settings: settings,
+                );
+
+              case '/cadastroProdutos':
+                return PageTransition(
+                  child: const CadastroProdutos(),
                   type: PageTransitionType.rightToLeft,
                   settings: settings,
                 );
