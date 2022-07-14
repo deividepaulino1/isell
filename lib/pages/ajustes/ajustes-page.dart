@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:isell/components/shared/card-component.dart';
 import 'package:isell/components/shared/topBar-component.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class AjustesPage extends StatelessWidget {
   const AjustesPage({Key? key}) : super(key: key);
@@ -19,6 +20,13 @@ class AjustesPage extends StatelessWidget {
                 height: 30,
               ),
               CardComponent(),
+              TextButton(
+                onPressed: () {
+                  Navigator.pushNamedAndRemoveUntil(
+                      context, '/', (route) => false);
+                },
+                child: Text('Desconectar'),
+              ),
             ],
           ),
         ),

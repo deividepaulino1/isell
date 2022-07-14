@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class ThemeChanger extends ChangeNotifier {
   var light = ThemeData(
     brightness: Brightness.light,
-    primarySwatch: Colors.brown,
+    primarySwatch: Colors.deepPurple,
     primaryColor: Colors.grey[100],
     accentColor: Colors.grey[800],
     backgroundColor: Colors.grey[800],
