@@ -107,29 +107,30 @@ class iSell extends StatelessWidget {
                   settings: settings,
                 );
 
+              // ignore: no_duplicate_case_values
               case '/inicioVenda':
                 return PageTransition(
-                  child: InicioVenda(),
+                  child: const InicioVenda(),
                   type: PageTransitionType.rightToLeft,
                   settings: settings,
                 );
 
               case '/pagamento':
                 return PageTransition(
-                  child: PagamentoPage(),
+                  child: const PagamentoPage(),
                   type: PageTransitionType.rightToLeft,
                   settings: settings,
                 );
               case '/registrar':
                 return PageTransition(
-                  child: SignPage(),
+                  child: const SignPage(),
                   type: PageTransitionType.rightToLeft,
                   settings: settings,
                 );
 
               case '/cadastrar':
                 return PageTransition(
-                  child: CadastrarCliente(),
+                  child: const CadastrarCliente(),
                   type: PageTransitionType.rightToLeft,
                   settings: settings,
                 );
