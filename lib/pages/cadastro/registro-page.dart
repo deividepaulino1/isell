@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, no_leading_underscores_for_local_identifiers, dead_code, unused_element, use_build_context_synchronously
 
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
@@ -8,22 +8,22 @@ import 'package:isell/components/shared/topBar-component.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:validatorless/validatorless.dart';
 
-import '../../data/services/validatorLogin.dart';
+import '../../data/services/login.service.dart';
 
-bool validaSnackBar = true;
+bool _exibirSenha = true;
 
-class Cadastro extends StatefulWidget {
-  const Cadastro({Key? key}) : super(key: key);
+class CadastroPage extends StatefulWidget {
+  const CadastroPage({Key? key}) : super(key: key);
 
   @override
-  State<Cadastro> createState() => _CadastroState();
+  State<CadastroPage> createState() => _CadastroPageState();
 }
 
-class _CadastroState extends State<Cadastro> {
+class _CadastroPageState extends State<CadastroPage> {
   final _formKey = GlobalKey<FormState>();
   final _emailEC = TextEditingController();
   final _senhaEC = TextEditingController();
-  var _scaffoldKey = new GlobalKey<ScaffoldState>();
+
   @override
   void dispose() {
     _emailEC.dispose();
@@ -31,10 +31,15 @@ class _CadastroState extends State<Cadastro> {
     super.dispose();
   }
 
+   void exibirSenha() {
+    setState(() {
+      _exibirSenha = !_exibirSenha;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: _scaffoldKey,
       body: SingleChildScrollView(
         child: Center(
           child: SafeArea(
@@ -60,7 +65,6 @@ class _CadastroState extends State<Cadastro> {
                         TextFormField(
                           validator: Validatorless.multiple([
                             Validatorless.required('O E-mail é obrigatório'),
-                            ValidatorLogin.validaEmail('E-mail Inválido')
                           ]),
                           controller: _emailEC,
                           decoration: InputDecoration(
@@ -76,10 +80,19 @@ class _CadastroState extends State<Cadastro> {
                             Validatorless.required('A senha é obrigatória'),
                             Validatorless.min(6,
                                 'A senha necessita ter pelo menos 6 caracteres'),
-                            ValidatorLogin.validaSenha('Senha Inválida')
                           ]),
                           controller: _senhaEC,
+                          obscureText: _exibirSenha,
                           decoration: InputDecoration(
+                              suffixIcon: TextButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      exibirSenha();
+                                    });
+                                  },
+                                  child: Icon((_exibirSenha == false)
+                                      ? Icons.remove_red_eye
+                                      : Icons.remove_red_eye_outlined)),
                               hintText: 'Senha',
                               hintStyle: TextStyle(
                                   color: Color.fromRGBO(147, 22, 255, 0.5))),
@@ -101,7 +114,7 @@ class _CadastroState extends State<Cadastro> {
                 color: Colors.yellow.shade700,
                 child: TextButton(
                   onPressed: () {
-                    
+                    doCadastro(context);
                   },
                   child: const Text(
                     'Finalizar Cadastro',
@@ -116,10 +129,9 @@ class _CadastroState extends State<Cadastro> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  TextButton(
-                    onPressed: (){
-                    }
-                  , child: Text('Cancelar')),
+                  TextButton(onPressed: () {
+                    Navigator.pop(context);
+                  }, child: Text('Cancelar')),
                 ],
               ),
             ]),
@@ -127,7 +139,33 @@ class _CadastroState extends State<Cadastro> {
         ),
       ),
     );
-  }
-}
+  } 
+  doCadastro(context) async {
+      final _fazerRegistro =
+          await LoginService().fazerCadastro(_emailEC.text, _senhaEC.text);
 
-//(condicao)? true : false
+      if (_fazerRegistro == 200) {
+        print(_fazerRegistro);
+        final snackbar = SnackBar(
+          content: Text(
+            'Cadastro realizado com sucesso!',
+            textAlign: TextAlign.center,
+          ),
+          backgroundColor: Colors.deepPurple,
+        );
+        ScaffoldMessenger.of(context).showSnackBar(snackbar);
+        Navigator.pop(context);
+      }
+      if (_fazerRegistro != 200) {
+        print(_fazerRegistro);
+        final snackbar2 = SnackBar(
+          content: Text(
+            'Erro ao realizar cadastro!',
+            textAlign: TextAlign.center,
+          ),
+          backgroundColor: Colors.grey,
+        );
+        ScaffoldMessenger.of(context).showSnackBar(snackbar2);
+      }
+}
+}

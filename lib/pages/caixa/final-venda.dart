@@ -42,7 +42,7 @@ class FinalVenda extends StatelessWidget {
                 ),
               ),
               Container(
-                height: Adaptive.h(60),
+                height: Adaptive.h(55),
                 width: Adaptive.w(80),
                 child: ComprovanteDataTable(),
               ),

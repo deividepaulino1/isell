@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:isell/components/theme/themeChanger.dart';
+import 'package:isell/pages/cadastro/registro-page.dart';
 import 'package:isell/pages/caixa/clientes-page.dart';
+import 'package:isell/pages/caixa/final-venda.dart';
 import 'package:isell/pages/caixa/inicioVenda.dart';
 import 'package:isell/pages/clientes/editarClientes-page.dart';
 import 'package:isell/pages/home-page.dart';
@@ -106,9 +108,9 @@ class iSell extends StatelessWidget {
                   settings: settings,
                 );
 
-              case '/inicioVenda':
+              case '/finalVenda':
                 return PageTransition(
-                  child: InicioVenda(),
+                  child: FinalVenda(),
                   type: PageTransitionType.rightToLeft,
                   settings: settings,
                 );
@@ -119,9 +121,9 @@ class iSell extends StatelessWidget {
                   type: PageTransitionType.rightToLeft,
                   settings: settings,
                 );
-              case '/registrar':
+              case '/cadastro':
                 return PageTransition(
-                  child: SignPage(),
+                  child: CadastroPage(),
                   type: PageTransitionType.rightToLeft,
                   settings: settings,
                 );

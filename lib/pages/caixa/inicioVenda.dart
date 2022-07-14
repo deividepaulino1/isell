@@ -40,7 +40,7 @@ class InicioVenda extends StatelessWidget {
                         // ignore: prefer_const_constructors
                         icon: Icon(
                           Icons.arrow_forward,
-                          color: Color.fromARGB(255, 138, 122, 41),
+                          color: Colors.orange,
                         ),
                       ),
                     ),
@@ -53,8 +53,13 @@ class InicioVenda extends StatelessWidget {
                   children: [
                     Container(
                       width: Adaptive.w(80),
-                      height: Adaptive.h(60),
-                      child: ComprovanteDataTable(),
+                      height: Adaptive.h(55),
+                      child: ListView(
+                        children: [
+                          ComprovanteDataTable(),
+
+                        ],
+                      ),
                     ),
                     SizedBox(
                       height: 10,
@@ -62,79 +67,6 @@ class InicioVenda extends StatelessWidget {
                   ],
                 ),
                 SizedBox(height: 5),
-                SizedBox(
-                  width: Adaptive.w(90),
-                  child: Card(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(25),
-                        side: BorderSide(
-                          color: Color.fromRGBO(112, 112, 112, 1),
-                        )),
-                    child: Column(
-                      children: [
-                        Padding(padding: EdgeInsets.only(top: 10)),
-                        Container(
-                          child: Text(
-                            'Loja do Deivide',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                        Padding(padding: EdgeInsets.only(top: 5)),
-                        Text(
-                          'Rua 11 de Agosto 682 - Centro',
-                        ),
-                        Padding(padding: EdgeInsets.only(top: 5)),
-                        Text(
-                          'CNPJ: 05.481.336.0001/37',
-                        ),
-                        Padding(padding: EdgeInsets.only(top: 10)),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              "Data: 14/09/2022 12:01",
-                              style: TextStyle(fontSize: 14),
-                            ),
-                            Padding(
-                                padding: EdgeInsets.only(left: 45, right: 45)),
-                            Text('Venda: 0010', style: TextStyle(fontSize: 14)),
-                          ],
-                        ),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        Text(
-                          'Comprovante de Venda',
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 18),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Container(
-                          height: Adaptive.h(30),
-                          width: Adaptive.w(90),
-                          child: ComprovanteDataTable(),
-                        ),
-                        Container(
-                          padding: EdgeInsets.only(top: 20),
-                          child: Text(
-                            'TOTAL: 40,00',
-                            style: TextStyle(
-                                color: Color.fromRGBO(147, 22, 255, 1),
-                                fontSize: 35,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 15,
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
                 SizedBox(height: 5),
                 SizedBox(
                   height: 50,
